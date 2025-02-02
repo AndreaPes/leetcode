@@ -10,26 +10,29 @@
  * @param {string} s
  * @return {boolean}
  */
-var isValid = function (s) {
+const isValid = function (s) {
     let stack = [];
 
     for (let i = 0; i < s.length; i++) {
         if (s[i] === '(' || s[i] === '[' || s[i] === '{') {
             stack.push(s[i])
         } else {
-            if(stack.length === 0){
+            if (stack.length === 0) {
                 return false;
             }
             switch (s[i]) {
                 case ')':
-                    if(stack.pop() === '(') { break }
-                    else return false
+                    if (stack.pop() === '(') {
+                        break
+                    } else return false
                 case ']':
-                    if(stack.pop() === '[') { break }
-                    else return false
+                    if (stack.pop() === '[') {
+                        break
+                    } else return false
                 case '}':
-                    if(stack.pop() === '{') { break }
-                    else return false
+                    if (stack.pop() === '{') {
+                        break
+                    } else return false
                 default:
                     return false
             }
